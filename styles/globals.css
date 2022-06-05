@@ -1,16 +1,50 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.html {
+  font-family: serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.html h1 {
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
 }
 
-* {
-  box-sizing: border-box;
+.html h2 {
+  display: block;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.html h3 {
+  display: block;
+  font-size: 1.17em;
+  font-weight: bold;
+}
+
+.html h4 {
+  display: block;
+  font-weight: bold;
+}
+
+.html p {
+  display: block;
+}
+
+.html li {
+  display: list-item;
+}
+
+.html ol {
+  display: block;
+  list-style-type: decimal;
+  padding-left: 40px;
+}
+
+.html ul {
+  display: block;
+  list-style-type: disc;
+  padding-left: 40px;
 }
