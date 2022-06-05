@@ -9,7 +9,7 @@ function BlockSelection() {
   const { drawer, setDrawer } = useDrawerContext();
 
   return (
-    <aside className="absolute right-0 z-10">
+    <aside className="absolute right-0 z-10 shadow-2xl">
       <div
         className="bg-white cursor-pointer absolute top-5 -z-10"
         onClick={() => {

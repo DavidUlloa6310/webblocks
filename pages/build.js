@@ -13,6 +13,13 @@ function Build() {
   const [showStyleMenu, setShowStyleMenu] = useState(false);
   const [selected, setSelected] = useState();
 
+  function updateBody() {
+    let bodyClone = body.current.cloneNode(true);
+    bodyClone.removeChild(bodyClone.firstChild);
+    formatBody(bodyClone);
+    resultSection.current.replaceChildren(bodyClone);
+  }
+
   function formatBody(node) {
     if (node.children) {
       for (let i = 0; i < node.children.length; i++) {
@@ -91,11 +98,7 @@ function Build() {
         dragged.style.opacity = 1;
         event.target.appendChild(copy);
 
-        let bodyClone = body.current.cloneNode(true);
-        bodyClone.removeChild(bodyClone.firstChild);
-        formatBody(bodyClone);
-
-        resultSection.current.replaceChildren(bodyClone);
+        updateBody();
       }
     }
 
@@ -145,15 +148,12 @@ function Build() {
     <DrawerProvider>
       <TrashIcon className=" w-16 absolute left-4 top-4 trash dropzone" />
       <BlockSelection />
-      <StyleMenu selected={selected} />
+      <StyleMenu selected={selected} updateBody={updateBody} />
       <main className="flex h-screen">
         <section
           className=" flex-grow border-r-4 border-neutral-300 flex justify-center items-center h-screen"
           onInput={(event) => {
-            let bodyClone = body.current.cloneNode(true);
-            bodyClone.removeChild(bodyClone.firstChild);
-            formatBody(bodyClone);
-            resultSection.current.replaceChildren(bodyClone);
+            updateBody();
           }}
         >
           <div
